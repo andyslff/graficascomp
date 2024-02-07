@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Pagina 4</title>
+  <style>
+    body{
+      background-color: rgb(244, 201, 201);
+      text-align: center;
+    }
+      canvas{
+          /*border: 3px solid brown;*/
+          background-color: rgb(147, 100, 104);
+      }
+  </style>
+
+<script>
+    //window.onload=function(){}
+    var x=50;
+    var dx=3;
+    var x1=150;
+    var dx1=3;
+    var x2=100;
+    var dx2=3;
+    var x3=30;
+    var dx3=3;
+    var x4=130;
+    var dx4=3;
+    var x5=200;
+    var dx5=3;
+    var x6=180;
+    var dx6=3;
+    var x7=70;
+    var dx7=3;
+    var x8=80;
+    var dx8=3;
+    var x9=105;
+    var dx9=3;
+
+    function animate(){
+        requestAnimationFrame(animate);
+        console.log('animando');
+        var canvas = document.getElementById("micanvas");
+      var context = canvas.getContext("2d");
+      context.clearRect(0,0, innerWidth,innerHeight);
+      context.fillStyle="white";
+      context.fillRect(x,50,50,50); //fillRect(x, y, width, height)
+      context.fillStyle="white";
+      context.fillRect(x1,50,50,50);
+      context.fillStyle="green";
+      context.fillRect(x2,65,50,20);
+      context.fillStyle="green";
+      context.fillRect(x2,50,20,20);
+      context.fillStyle="green";
+      context.fillRect(x4,50,20,20);
+      context.fillStyle="green";
+      context.fillRect(x,30,50,20);
+      context.fillStyle="green";
+      context.fillRect(x1,30,50,20);
+      context.fillStyle="green";
+      context.fillRect(x3,50,20,50); 
+      context.fillStyle="green";
+      context.fillRect(x5,50,20,50); 
+      context.fillStyle="green";
+      context.fillRect(x,100,20,20); 
+      context.fillStyle="green";
+      context.fillRect(x3,120,20,50); //abajo de los ojos a la izquierda
+      context.fillStyle="green";
+      context.fillRect(x6,100,20,20); 
+      context.fillStyle="green";
+      context.fillRect(x5,120,20,50); //abajo de los ojos a la derecha
+      context.fillStyle="green";
+      context.fillRect(x,170,150,20); 
+      
+      context.fillStyle="lightgreen";
+      context.fillRect(x2,80,50,20);
+      context.fillStyle="lightgreen";
+      context.fillRect(x7,100,110,20);
+      context.fillStyle="lightgreen";
+      context.fillRect(x,120,150,50);
+      context.fillStyle="black";
+      context.fillRect(x8,65,20,20);
+      context.fillStyle="black";
+      context.fillRect(x1,65,20,20);
+      context.fillStyle="darkred";
+      context.fillRect(x9,110,40,20);
+
+      if(x>800||x<0)
+      {
+        dx=-dx;
+      }
+      if(x>800||x<0)
+      {
+        dx1=-dx1;
+      }
+      if(x>800||x<0)
+      {
+        dx2=-dx2;
+      }
+      if(x>800||x<0)
+      {
+        dx3=-dx3;
+      }
+      if(x>800||x<0)
+      {
+        dx4=-dx4;
+      }
+      if(x>800||x<0)
+      {
+        dx5=-dx5;
+      }
+      if(x>800||x<0)
+      {
+        dx6=-dx6;
+      }
+      if(x>800||x<0)
+      {
+        dx7=-dx7;
+      }
+      if(x>800||x<0)
+      {
+        dx8=-dx8;
+      }
+      if(x>800||x<0)
+      {
+        dx9=-dx9;
+      }
+      x+=dx;
+      x1+=dx1;
+      x2+=dx2;
+      x3+=dx3;
+      x4+=dx4;
+      x5+=dx5;
+      x6+=dx6;
+      x7+=dx7;
+      x8+=dx8;
+      x9+=dx9;
+    }
+    animate();
+</script>
+
+  </head>
+<body>
+   <canvas id="micanvas" width="800" height="600"></canvas>
+</body>
+</html>
