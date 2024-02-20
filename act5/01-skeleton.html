@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>VOCALES</title> <!--titulo pagina-->
+    <link rel="stylesheet" href="style.css">
+    
+    <h1>VOCALES</h1> <!--titulo q se ve-->
+    <h2>Teclea cualquier vocal</h2> <!--subtitulo-->
+    
+    <style>
+      body{
+        background-color: bisque;
+        text-align: center;
+      }
+      h1{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 70px;
+        color: rgb(58, 57, 95);
+      }
+      h2{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 30px;
+        color: rgb(21, 66, 118);
+      }
+      canvas{
+        background-color: rgb(91, 123, 89);
+      }
+    </style>
+
+  </head>
+  <body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    
+    
+    <script src="../act5/keycode.js"></script> <!--Manda a llamar el archivo JS externo-->
+    <script>
+    window.onload = function () {
+      
+      var canvas = document.getElementById("canvas");
+      var  context = canvas.getContext("2d");
+      
+      var imagen=new Image();
+      imagen.src="imgs/IMG_1804.jpg";
+      var imagen2=new Image();
+      imagen2.src="imgs/ama.jpg";
+      var imagen3=new Image();
+      imagen3.src="imgs/download.jpg";
+      var imagen4=new Image();
+      imagen4.src="imgs/small.jpg";
+      var imagen5=new Image();
+      imagen5.src="imgs/Michisesposos_3.jpg";
+      var imagen6=new Image();
+      imagen6.src="imgs/pareja.jpg";
+
+      
+      imagen.onload=function(){
+        context.drawImage(imagen, 200,200,400,200);
+      };
+
+      context.fillStyle= 'white';//cambia color de letra a tbodo
+
+      function onKeyboardEvent (event){
+        switch (event.keyCode){
+          case keyCode.A:
+            context.clearRect(0,0, innerWidth, innerHeight);
+            context.drawImage(imagen5, 200,200,400,300);
+            context.font= '40pt Calibri';
+            context.fillText('A', 400,100);
+            break;
+
+            case keyCode.E:
+            context.clearRect(0,0, innerWidth, innerHeight);
+            context.drawImage(imagen4, 200,200,400,300);
+            context.font= '40pt Calibri';
+            context.fillText('E', 400,100);
+            break;
+
+            case keyCode.I:
+            context.clearRect(0,0, innerWidth, innerHeight);
+            context.drawImage(imagen2, 200,200,400,300);
+            context.font= '40pt Calibri';
+            context.fillText('I', 400,100);
+            break;
+
+            case keyCode.O:
+            context.clearRect(0,0, innerWidth, innerHeight);
+            context.drawImage(imagen6, 200,200,400,250);
+            context.font= '40pt Calibri';
+            context.fillText('O', 400,100);
+            break;
+
+            case keyCode.U:
+            context.clearRect(0,0, innerWidth, innerHeight);
+            context.drawImage(imagen3, 200,200,400,300);
+            context.font= '40pt Calibri';
+            context.fillText('U', 400,100);
+            default:
+              //console.log(event.keyCode);
+        }
+      }
+
+      window.addEventListener("keydown", onKeyboardEvent, false);
+    };
+    </script>
+    
+  </body>
+</html>
