@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rotate to Mouse</title>
+    <link rel="stylesheet" href="style.css">
+    <h1>Hello Kitty</h1> <!--titulo q se ve-->
+    <h2>Dame vueltas y say cheese!!</h2> <!--subtitulo-->
+    
+    <style>
+      body{
+        background-color: rgb(184, 116, 168);
+        text-align: center;
+      }
+      h1{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 70px;
+        color: rgb(138, 49, 107);
+      }
+      h2{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 30px;
+        color: rgb(138, 49, 107);
+      }
+      canvas{
+        background-color: rgb(241, 216, 231);
+      }
+
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="1000" height="1000"></canvas>
+    <!--aside>Move mouse on canvas element.</aside-->
+    
+    <script src="utils.js"></script>
+    <script src="./classes/arrow.js"></script>
+    <script>
+      
+    window.onload = function () {
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d'),
+          mouse = utils.captureMouse(canvas),
+          pelota = new Image();
+          pelota.src="imgs/hellokitty.png";
+        
+      (function drawFrame () {
+        window.requestAnimationFrame(drawFrame, canvas);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.save();
+          
+        var x=canvas.width/2;
+        var y=canvas.height/2;
+
+        context.translate(x,y);
+        var dx=mouse.x-x,
+        dy=mouse.y-y;
+        var radianes=Math.atan2(dy,dx);
+        console.log(radianes);
+        context.rotate(radianes);
+        context.drawImage(pelota,-pelota.width/2,-pelota.height/2);
+        context.restore();
+      }());
+    };
+    </script>
+  </body>
+</html>
