@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Practica color</title>
+    
+    <h1>Mundito</h1> <!--titulo q se ve-->
+    
+    <style>
+      body{
+        background-color: rgb(148, 136, 168);
+        text-align: center;
+      }
+      h1{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 70px;
+        color: rgb(53, 52, 102);
+      }
+      canvas{
+        background-color: #232737;
+      }
+    </style>
+
+  </head>
+  <body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <script>
+    window.onload = function () {
+      //Our code here...
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d');
+          
+          //montañas
+          context.save();
+          context.fillStyle="#8a724f";
+          context.strokeStyle="white";
+          context.lineWidth=2;
+          context.beginPath();
+          context.moveTo(0,200);
+          context.quadraticCurveTo(450,250,600,700);
+          context.lineTo(0,700);
+          context.closePath();
+          context.stroke();
+          context.fill();
+          context.restore();
+          
+          context.save();
+          context.fillStyle="#8a724f";
+          context.strokeStyle="white";
+          context.lineWidth=2;
+          context.beginPath();
+          context.moveTo(800,700);
+          context.lineTo(450,700);
+          context.quadraticCurveTo(550,400,800,350);
+          context.closePath();
+          context.stroke();
+          context.fill();
+          context.restore();
+          
+
+          //estrella
+          context.save();
+          context.fillStyle="yellow";
+          context.strokeStyle="white";
+          context.lineWidth=2;
+          context.beginPath();
+          context.moveTo(250,150);
+          context.lineTo(300,60);
+          context.lineTo(350,150);
+          context.closePath();
+          context.stroke();
+          context.fill();
+          context.restore();
+
+          context.save();
+          context.fillStyle="yellow";
+          context.strokeStyle="white";
+          context.lineWidth=2;
+          context.beginPath();
+          context.moveTo(250,100);
+          context.lineTo(350,100);
+          context.lineTo(300,180);
+          context.closePath();
+          context.stroke();
+          context.fill();
+          context.restore();
+          
+          //otra estrella
+          context.save();
+          context.fillStyle="white";
+          context.beginPath();
+          context.moveTo(750,150);
+          context.quadraticCurveTo(740,110,700,100); //le agrega una curva a la figura triangular los ultimos dos son el punto borrado y los primeros son un punto en especifico fuera del triangulo para hacer la forma circular
+          context.quadraticCurveTo(740,90,750,50);
+          context.quadraticCurveTo(760,90,800,100);
+          context.quadraticCurveTo(760,110,750,150);
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          context.save();
+          context.fillStyle="white";
+          context.beginPath();
+          context.moveTo(700,210);
+          context.quadraticCurveTo(695,190,680,180); //le agrega una curva a la figura triangular los ultimos dos son el punto borrado y los primeros son un punto en especifico fuera del triangulo para hacer la forma circular
+          context.quadraticCurveTo(695,170,700,150);
+          context.quadraticCurveTo(705,170,720,180);
+          context.quadraticCurveTo(705,190,700,210);
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //casa
+          context.save();
+          context.fillStyle="#C99366";
+          context.strokeStyle="white";
+          context.lineWidth=2;
+          context.beginPath();
+          context.moveTo(50,500);
+          context.lineTo(150,350);
+          context.lineTo(250,500);
+          context.closePath();
+          context.stroke();
+          context.fill();
+          context.restore();
+          //casa abajo
+          context.save();
+          context.fillStyle="#C99366";
+          context.strokeStyle="white";
+          context.lineWidth=1;
+          context.beginPath();
+          context.fillRect(50,500,200,200);
+          context.strokeRect(50,500,200,200);
+          context.closePath();
+          context.fill();
+          context.restore();
+          //puerta
+          context.save();
+          context.fillStyle="#C18355";
+          context.strokeStyle="white";
+          context.lineWidth=1;
+          context.beginPath();
+          context.fillRect(100,600,100,100);
+          context.strokeRect(100,600,100,100);
+          context.closePath();
+          context.fill();
+          context.restore();
+          //ventanas
+          context.save();
+          context.fillStyle="#dcce69";
+          context.strokeStyle="white";
+          context.lineWidth=1;
+          context.beginPath();
+          context.fillRect(70,530,50,50);
+          context.strokeRect(70,530,50,50);
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          context.save();
+          context.fillStyle="#dcce69";
+          context.strokeStyle="white";
+          context.lineWidth=1;
+          context.beginPath();
+          context.fillRect(180,530,50,50);
+          context.strokeRect(180,530,50,50);
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          context.save();
+          context.fillStyle="#dcce69";
+          context.strokeStyle="white";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(150,450,25,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //pasto
+          context.save();
+          context.fillStyle="#3f7839";
+          context.strokeStyle="white";
+          context.lineWidth=1;
+          context.beginPath();
+          context.fillRect(0,700,800,100);
+          context.strokeRect(0,700,800,100);
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //hongo
+          context.save();
+          context.fillStyle="#dd3e3e";
+          context.strokeStyle="white";
+          context.lineWidth=2;
+          context.beginPath();
+          context.moveTo(380,700);//se usa para hacer la curva
+          context.quadraticCurveTo(400,675,380,650); //le agrega una curva a la figura triangular los ultimos dos son el punto borrado y los primeros son un punto en especifico fuera del triangulo para hacer la forma circular
+          context.lineTo(350,650);//es para lineas rectas
+          context.quadraticCurveTo(425,550,500,650);
+          context.lineTo(470,650);
+          context.quadraticCurveTo(450,675,470,700);
+          context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+          
+          //LUNA
+		
+		const c1 = {x: 440, y: 120, radius: 0};   
+		const c2 = {x: 440, y: 120, radius: 80};
+          gradient = context.createRadialGradient(c1.x, c1.y, c1.radius,
+                                                    c2.x, c2.y, c2.radius);
+      //all black alpha blend
+      gradient.addColorStop(0, "#ffffff");
+      gradient.addColorStop(0.85, "#f3fa37");
+      gradient.addColorStop(1, "rgba(0, 0, 0, 1)"); //alpha required
+
+      context.fillStyle = gradient;
+
+		context.beginPath();
+		context.arc(440, 120, 80, 0, 2 * Math.PI, true);
+		context.closePath();
+
+		context.fill();
+		
+		//luna 0
+		context.save();
+		context.fillStyle ="#232737";
+		//context.strokeStyle="#0c064a";
+		//context.lineWidth=9;
+		context.beginPath();
+		context.arc(410,130,65,0,2*Math.PI);
+		//context.stroke();
+		context.closePath();
+		context.fill();
+		context.restore();
+
+
+          /*/circulo luna
+          context.save();
+          context.fillStyle="white";
+          context.strokeStyle="black";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(100,75,50,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //circulo blanco
+          context.save();
+          context.fillStyle="#232737";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(130,75,50,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          context.closePath();
+          context.fill();
+          context.restore();*/
+
+
+    };
+    </script>
+  </body>
+</html>
