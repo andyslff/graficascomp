@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Drawing</title>
+    <link rel="stylesheet" href="style.css">
+	  <style>
+		  body{
+              background-color: bisque;
+			  text-align: center;
+			  width: 100%;
+		  }
+		   h1 {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 70px;
+        color: rgb(58, 57, 95);
+        	}
+            h2{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 30px;
+        color: rgb(21, 66, 118);
+      }
+		  .container{
+			  margin: 3px auto;
+			  text-align: center;
+			  width:1000px;
+		  }
+		  button{
+			  width: 100px;
+			  height: 50px;
+			  margin:5px;
+		  }
+		  
+		  button:hover{
+			  opacity: 0.5;
+		  }
+		  #green{
+			  background-color: green;
+			  font: 16px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  #red{
+			  background-color: red;
+			  font: 16px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  #orange{
+			  background-color: orange;
+			  font: 16px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  #yellow{
+			  background-color: yellow;
+			  font: 16px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  
+		  #blue{
+			  background-color: blue;
+			  font: 16px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  
+		  
+		  #Grosor1{
+			  background-color: #525252;
+			  font: 13px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  #Grosor2{
+			  background-color: #525252;
+			  font: 13px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  #Grosor3{
+			  background-color: #525252;
+			  font: 13px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  
+		  #borrar{
+			  width: 330px;
+			  background-color: black;
+			  font: 16px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		 
+	  </style>
+  </head>
+  <body>
+	<h1>Paint</h1>  
+    <h2>Haz clic en cualquier botón y empieza a dibujar</h2>  
+	  <div id="container">
+		<div class="colores">
+			<button id="green" type="button" value="green">Verde</button>
+			<button id="red" type="button" value="red">Rojo</button>
+			<button id="yellow" type="button" value="yellow">Amarillo</button>
+			<button id="orange" type="button" value="orange">Naranja</button>
+			<button id="blue" type="button" value="blue">Azul</button>
+		</div>
+		<div class="grosor">
+			<button id="Grosor1" type="button" value="2">Delgada</button>
+			<button id="Grosor2" type="button" value="4">Gruesa</button>
+			<button id="Grosor3" type="button" value="6">Extra gruesa</button>
+		</div>
+		<div id="otros">
+			<button id="borrar" type="button" value="black">Borrar todo</button>
+		</div>
+
+		<canvas id="canvas" width="900" height="700"></canvas>
+		
+
+		<script src="utils.js"></script>
+		<script>
+		window.onload = function () {
+		  var canvas = document.getElementById('canvas'),
+			  context = canvas.getContext('2d'),
+			  mouse = utils.captureMouse(canvas);
+
+		  canvas.addEventListener('mousedown', function () {
+			context.beginPath();
+			context.moveTo(mouse.x, mouse.y);
+			canvas.addEventListener('mousemove', onMouseMove, false);
+		  }, false);
+
+		  canvas.addEventListener('mouseup', function () {
+			canvas.removeEventListener('mousemove', onMouseMove, false);
+		  }, false);
+
+		  function onMouseMove () {
+			context.lineTo(mouse.x, mouse.y);
+			context.stroke();
+		  }
+			
+			var colores=document.getElementsByClassName("colores")[0];
+			colores.addEventListener("click", function(event){
+				context.strokeStyle = event.target.value;
+			});
+			
+			var grosorButtons = document.querySelectorAll(".grosor button");
+			grosorButtons.forEach(function(button) {
+				button.addEventListener("click", function() {
+					var grosor = parseInt(this.value); 
+							context.lineWidth = grosor;
+				});
+			});
+			
+			var clearButton=document.getElementById("borrar");
+			clearButton.addEventListener("click", function(){
+				context.clearRect(0,0, canvas.width, canvas.height);
+			});
+			
+		};
+		</script>
+	</div>  
+  </body>
+</html>
