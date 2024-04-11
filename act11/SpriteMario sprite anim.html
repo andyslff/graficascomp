@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sprite Animado</title>
+
+    <h1>Sin cara</h1> <!--titulo q se ve-->
+    <h2>Sprite Animado</h2> <!--subtitulo-->
+
+    <style>
+       body{
+        background-color: rgb(255, 255, 255);
+        text-align: center;
+      }
+      h1{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 70px;
+        color: rgb(58, 57, 95);
+      }
+      h2{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 30px;
+        color: rgb(21, 66, 118);
+      }
+      canvas{
+        background-color: rgb(141, 180, 224);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script src="sprite.js"></script> 
+    <script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+        var  mario = new sprite(); //*** Puedes cambiar el nombre de la variable
+    
+        mario.x = canvas.width / 2;
+        mario.y = canvas.height / 2;
+
+      (function drawFrame () {
+        window.requestAnimationFrame(drawFrame, canvas);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        mario.draw(context); 
+      }());
+
+    };
+    </script>
+  </body>
+</html>
